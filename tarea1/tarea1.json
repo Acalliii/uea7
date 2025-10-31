@@ -1,0 +1,5 @@
+{
+    "partesDelCuerpo": ["mano", "pie", "cuello", "pierna"],
+    "acciones": ["estires", "dobles", "muevas", "abras", "cierres"],
+    "lado": ["izquierda", "derecha"]
+}
