@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+    <h1> Colores </h1>
+    <p id="frasecolor"></p>
+
+    <div id="imageContainer"></div>
+
+    <script>
+        const AcalliClient = supabase.createClient('https://tntahojemondbmiojzwb.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRudGFob2plbW9uZGJtaW9qendiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNjEzNjQsImV4cCI6MjA3NzgzNzM2NH0.oHpuUS8qTqb3pqCnMzkwAbiIFrLv5om5jGZv7VSdYlk', {
+            db: {schema:"public"}
+        });
+
+        (async () => {
+            const response = await AcalliClient.from("Color").select("frase")
+            console.log(response)
+            
+            document.getElementById("frasecolor").innerHTML = response.data[0].frase
+        
+            const response2 = await AcalliClient.storage.from("Fotoss").getPublicUrl("imagen2.jpeg")
+            console.log(response2.data.publicUrl)         
+            const imgElement=document.createElement('img')
+                imgElement.src = response2.data.publicUrl
+                imgElement.width = 400
+                document.getElementById ('imageContainer').appendChild (imgElement)      
+
+        }) ()
+    </script>
+</body>
+</html>
