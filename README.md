@@ -2,7 +2,7 @@
 
 * UEA VII PRODUCCIÓN Y COMUNICACIÓN EN LA CULTURA COLABORATIVA 
 * Acallli Nazario Rivera 
-* Arte y comunicaciones digitales 
+* Licenciatura en Arte y comunicaciones digitales 
 
 ##  Objetivo del repositorio 
 
