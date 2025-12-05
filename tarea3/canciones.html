@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canciones</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+    <h1> Canciones </h1>
+    <p id="nombrecancion"></p>
+
+    <script>
+        const AcalliClient = supabase.createClient('https://rofsfdjkhlqvdoowlwcq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZnNmZGpraGxxdmRvb3dsd2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5MDUzMTYsImV4cCI6MjA4MDQ4MTMxNn0.9p57vjYGqG0a1RaqsXjqZ4p76c8mLj2DUT_IzINCbo4', {
+            db: {schema:"public"}
+        });
+
+        (async () => {
+            const response = await AcalliClient.from("canciones").select("nombre")
+            console.log(response)
+            
+            document.getElementById("nombrecancion").innerHTML = response.data[0].nombre
+         }) ()
+    </script>
+</body>
+</html>
