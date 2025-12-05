@@ -8,19 +8,65 @@
 
 </head>
 <body>
-    <h1> Canciones </h1>
-    <p id="nombrecancion"></p>
+    <h1>Ranking de canciones</h1>
+  <div class="ranking">
+  <p id="ranking1"></p>
+  <p id="ranking2"></p>
+  <p id="ranking3"></p>
+  <p id="ranking4"></p>
+  <p id="ranking5"></p>
+  <p id="ranking6"></p>
+  <p id="ranking7"></p>
+  <p id="ranking8"></p>
+  <p id="ranking9"></p>
+  <p id="ranking10"></p>
+</div>
+
+<div class="nombre">
+    <p id="nombre1"></p>
+    <p id="nombre2"></p>
+    <p id="nombre3"></p>
+    <p id="nombre4"></p>
+    <p id="nombre5"></p>
+    <p id="nombre6"></p>
+    <p id="nombre7"></p>
+    <p id="nombre8"></p>
+    <p id="nombre9"></p>
+    <p id="nombre10"></p>
+</div>
 
     <script>
         const AcalliClient = supabase.createClient('https://rofsfdjkhlqvdoowlwcq.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJvZnNmZGpraGxxdmRvb3dsd2NxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ5MDUzMTYsImV4cCI6MjA4MDQ4MTMxNn0.9p57vjYGqG0a1RaqsXjqZ4p76c8mLj2DUT_IzINCbo4', {
             db: {schema:"public"}
         });
-
+        
         (async () => {
-            const response = await AcalliClient.from("canciones").select("nombre")
-            console.log(response)
+            const response = await AcalliClient.from("canciones").select("ranking")
+        console.log(response.data)
+        document.getElementById("ranking1").innerHTML = response.data[0].ranking
+        document.getElementById("ranking2").innerHTML = response.data[1].ranking
+        document.getElementById("ranking3").innerHTML = response.data[2].ranking
+        document.getElementById("ranking4").innerHTML = response.data[3].ranking
+        document.getElementById("ranking5").innerHTML = response.data[4].ranking
+        document.getElementById("ranking6").innerHTML = response.data[5].ranking
+        document.getElementById("ranking7").innerHTML = response.data[6].ranking
+        document.getElementById("ranking8").innerHTML = response.data[7].ranking
+        document.getElementById("ranking9").innerHTML = response.data[8].ranking
+        document.getElementById("ranking10").innerHTML = response.data[9].ranking
+
+        const response2 = await AcalliClient.from("canciones").select("nombre")
+         console.log(response2.data)
+            document.getElementById("nombre1").innerHTML = response2.data[0].nombre
+            document.getElementById("nombre2").innerHTML = response2.data[1].nombre
+            document.getElementById("nombre3").innerHTML = response2.data[2].nombre
+            document.getElementById("nombre4").innerHTML = response2.data[3].nombre
+            document.getElementById("nombre5").innerHTML = response2.data[4].nombre
+            document.getElementById("nombre6").innerHTML = response2.data[5].nombre
+            document.getElementById("nombre7").innerHTML = response2.data[6].nombre
+            document.getElementById("nombre8").innerHTML = response2.data[7].nombre
+            document.getElementById("nombre9").innerHTML = response2.data[8].nombre
+            document.getElementById("nombre10").innerHTML = response2.data[9].nombre
             
-            document.getElementById("nombrecancion").innerHTML = response.data[0].nombre
          }) ()
     </script>
 </body>

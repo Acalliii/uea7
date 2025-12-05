@@ -23,13 +23,6 @@
             console.log(response)
             
             document.getElementById("frasecolor").innerHTML = response.data[0].frase
-        
-            const response2 = await AcalliClient.storage.from("Fotoss").getPublicUrl("imagen2.jpeg")
-            console.log(response2.data.publicUrl)         
-            const imgElement=document.createElement('img')
-                imgElement.src = response2.data.publicUrl
-                imgElement.width = 400
-                document.getElementById ('imageContainer').appendChild (imgElement)      
 
         }) ()
     </script>
